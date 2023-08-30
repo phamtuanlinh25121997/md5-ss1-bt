@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List Person</h1>
+<a href="/add"> Add new Person</a>
+<table border="10" cellpadding="20" cellspacing="10">
+    <tr>
+        <th>ID</th>
+        <th>nameSong</th>
+        <th>singer</th>
+        <th>category</th>
+        <th>Video</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <tr th:each="p:${list}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.nameSong}"></td>
+        <td th:text="${p.singer}"></td>
+        <td th:text="${p.category}"></td>
+        <td><video width="200" height="200" style="object-fit: cover" th:src="@{|/upload/${p.link}|}" alt="#" controls> </video> </td>
+        <td><a th:href="@{|/edit/${p.id}|}">Edit</a></td>
+        <td><a th:href="@{|/delete/${p.id}|}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>

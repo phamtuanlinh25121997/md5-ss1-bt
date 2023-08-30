@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Thêm mới</h1>
+<form action="/add" th:object="${music}" method="post" enctype="multipart/form-data">
+    <table border="10" cellpadding="20" cellspacing="10">
+        <tr>
+            <th>Name</th>
+            <td><input type="text" th:field="*{nameSong}" required></td>
+        </tr>
+        <tr>
+            <th>Singer</th>
+            <td><input type="text" th:field="*{singer}" ></td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td><input type="text" th:field="*{category}"></td>
+        </tr>
+        <tr>
+            <th>Video</th>
+            <td><input type="file" th:field="*{link}"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Add"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
